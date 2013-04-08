@@ -7,7 +7,7 @@ module Railstar
 
   class CodeHolder < Hash
     def initialize(code_dir=nil)
-      @code_dir = code_dir || File.join(Rails.root, "config/resources/code")
+      @code_dir = code_dir || "./config/resources/code"
     end
 
     def method_missing(name, *args)
@@ -107,5 +107,5 @@ module Railstar
   end
 end
 
-#C = Railstar::CodeHolder.new unless defined?(C)
+C = Railstar::CodeHolder.new
 
