@@ -1,5 +1,6 @@
-title,性別
+title,性別テストデータ
+type,int_val,integer
 #DATA
-key,value,position,name
-MALE,m,1,男性
-FEMALE,f,2,女性
+key,value,position,name,short_name,int_val
+FEMALE,f,2,女性,女,2
+MALE,m,1,男性,男,1

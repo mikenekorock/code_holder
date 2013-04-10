@@ -76,8 +76,12 @@ module Railstar
       raise UndefinedCode, "not found #{files}"
     end
 
-    def to_opt(value=:name)
-      @order.map{|k| [self[k].data(value), self[k]] }
+    def to_opt(column1=:name, column2=nil)
+      if column2.nil?
+        @order.map{|k| [self[k].data(column1), self[k]]}
+      else
+        @order.map{|k| [self[k].data(column1), self[k].data(column2)]}
+      end
     end
   end
 
@@ -89,7 +93,16 @@ module Railstar
     end
 
     def data(key)
-      @data[key.to_sym]
+      case @type[key]
+      when "integer"
+        @data[key.to_sym].to_i
+      else
+        @data[key.to_sym]
+      end
+    end
+
+    def value
+      self.data(:value)
     end
 
     def position
