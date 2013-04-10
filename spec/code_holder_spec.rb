@@ -2,8 +2,10 @@
 require 'spec_helper'
 
 describe "CodeHolder" do
-  it "テストデータがloadできる" do
-    C_TEST.gender.MALE.should == "m"
+  describe "load" do
+    it "できる" do
+      C_TEST.gender.map{|k,v| v.data }.should == [{:key=>"FEMALE", :value=>"f", :position=>"2", :name=>"女性", :short_name=>"女", :int_val=>"2"}, {:key=>"MALE", :value=>"m", :position=>"1", :name=>"男性", :short_name=>"男", :int_val=>"1"}]
+    end
   end
 
   describe "key名" do

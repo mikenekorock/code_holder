@@ -61,6 +61,7 @@ CSVのpositionカラムの数字を入れ替えることで、セレクトボッ
     MALE,m,1,男性,男,1
 
     > C.gender.MALE.int_val => 1
+    > C.gender.map{|k,v| v.data } => [{:key=>"FEMALE", :value=>"f", :position=>"2", :name=>"女性", :short_name=>"女", :int_val=>"2"}, {:key=>"MALE", :value=>"m", :position=>"1", :name=>"男性", :short_name=>"男", :int_val=>"1"}]
 
 ### 任意の項目のセレクトボックスを作成することも可能
 

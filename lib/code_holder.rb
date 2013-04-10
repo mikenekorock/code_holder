@@ -92,7 +92,8 @@ module Railstar
       super(@data[:value])
     end
 
-    def data(key)
+    def data(key=nil)
+      return @data if key.nil?
       case @type[key]
       when "integer"
         @data[key.to_sym].to_i
@@ -101,21 +102,16 @@ module Railstar
       end
     end
 
-    def value
-      self.data(:value)
-    end
-
     def position
       @data[:position].to_i
     end
 
     def method_missing(name, *args)
-      case @type[name]
-      when "integer"
-        @data[name.to_sym].to_i
-      else
-        @data[name.to_sym]
-      end
+      self.data(name)
+    end
+
+    def value
+      self.data(:value)
     end
   end
 end
