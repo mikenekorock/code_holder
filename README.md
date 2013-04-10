@@ -33,10 +33,11 @@ key,value,position,name 必須
     > C.gender.MALE.name => "男性"
     > C.gender["m"] => "m"
     > C.gender["m"].name => "男性"
+    > C.gender["m"].short_name => "男"
 
 ### このセレクトボックスを作りたければ
 
-    <%= f.select :gender, C.genders.to_opt, :include_blank => "選択してください"  %>
+    <%= f.select :gender, C.gender.to_opt, :include_blank => "選択してください"  %>
 
 CSVのpositionカラムの数字を入れ替えることで、セレクトボックスの順番を変えることも可能
 
@@ -50,7 +51,7 @@ CSVのpositionカラムの数字を入れ替えることで、セレクトボッ
 
     ENUMS = Railstar::CodeHolder.new("resources/code")
 
-### 型はintegerのみ指定可能
+### 型はintegerのみ指定可能(指定がなければString)
 
     title,性別テストデータ
     type,int_val,integer
@@ -63,8 +64,8 @@ CSVのpositionカラムの数字を入れ替えることで、セレクトボッ
 
 ### 任意の項目のセレクトボックスを作成することも可能
 
-    <%= f.select :gender, C.genders.to_opt(:short_name), :include_blank => "選択してください"  %>
-    <%= f.select :gender, C.genders.to_opt(:short_name, :int_val), :include_blank => "選択してください"  %>
+    <%= f.select :gender, C.gender.to_opt(:short_name), :include_blank => "選択してください"  %>
+    <%= f.select :gender, C.gender.to_opt(:short_name, :int_val), :include_blank => "選択してください"  %>
 
 ## Contributing
 
