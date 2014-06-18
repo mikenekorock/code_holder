@@ -1,6 +1,6 @@
 # CodeHolder
 
-RAILS_ROOT/config/code_holder 配下にcsvを配置することでEnumを管理することができる。
+RAILS_ROOT/config/code_holder 配下にcsvを配置することでEnumを管理することができる
 
 ## Installation
 
